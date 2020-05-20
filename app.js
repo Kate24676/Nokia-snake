@@ -13,7 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let intervalTime = 0
     let interval = 0
 
-
+    //to start and restart the game
+    function startGame() {
+        currentSnake.forEach(index => squares[index].classList.remove('snake'))
+        squares[appleIndex].classList.remove('apple')
+        clearInterval(interval)
+        score = 0
+    }
 
     //assign functions to keycodes
     function control(e) {
@@ -27,6 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
             direction -1
         } else if (e.keyCode === 40) {
             direction = +width
+        }
     }
+
+    document.addEventListener('keyup', control)
 
 })
