@@ -45,7 +45,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const tail = currentSnake.pop()
     squares[tail].classList.remove('snake')
+    currentSnake.unshift(currentSnake[0] + direction)
     //deals with snake getting apple
+
+    if(squares[currentSnake[0]].classList.contains('apple')) {
+        squares[currentSnake[0]].classList.remove('apple')
+        squares[tail].classList.add('snake')
+        currentSnake.push(tail)
+        //randomApple()
+        score++
+        scoreDisplay.textContent
+    }
 
     }
 
